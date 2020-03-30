@@ -1,6 +1,12 @@
 # RANDOM MESSAGES SETTINGS
 
 # RANDOM MESSAGES:
+# Time interval in seconds that a random message will appear on the screen of all players. 
+# Default = 120 | Min = 1 | Max = 3600 (1 hour)
+random_messages_interval (Random Messages Interval) int 120 1 3600
+
+
+# RANDOM MESSAGES:
 # Colorize the random message using hexadecimal color coding. 
 # 
 # Samples:
@@ -8,3 +14,6 @@
 # * 0000FF = BLUE   FFFF00 = YELLOW
 # * 000000 = BLACK  FFFFFF = WHITE
 default_messages_color (Default Messages Color) string FF0000
+
+
+#
