@@ -1,0 +1,10 @@
+# RANDOM MESSAGES SETTINGS
+
+# RANDOM MESSAGES:
+# Colorize the random message using hexadecimal color coding. 
+# 
+# Samples:
+# * FF0000 = RED    00FF00 = GREEN
+# * 0000FF = BLUE   FFFF00 = YELLOW
+# * 000000 = BLACK  FFFFFF = WHITE
+default_messages_color (Default Messages Color) string FF0000

@@ -7,6 +7,7 @@ arsdragonfly@gmail.com
 local MESSAGE_INTERVAL = 0
 -- Added default messages file
 local default_messages_file = "default_random_messages"
+local default_messages_color =  (minetest.setting_get("default_messages_color") or "FF0000")
 
 math.randomseed(os.time())
 
@@ -85,7 +86,7 @@ end
 function random_messages.display_message(message_number)
 	local msg = random_messages.messages[message_number] or message_number
 	if msg then
-		minetest.chat_send_all(msg)
+		minetest.chat_send_all("["..core.colorize("#"..default_messages_color, S("INFORMATION")).."] "..msg)
 	end
 end
 
@@ -135,14 +136,14 @@ if random_messages.messages[1] then
 end
 
 local register_chatcommand_table = {
-	params = "viewmessages | removemessage <number> | addmessage <number>",
+	params = "viewmessages/view/list | removemessage/remove/delete/del <number> | addmessage/add <number>",
 	privs = {server = true},
 	description = S("View and/or alter the server's random messages"),
 	func = function(name,param)
 		local t = string.split(param, " ")
-		if t[1] == "viewmessages" then
+		if t[1] == "viewmessages" or t[1] == "view" or t[1] == "list" then
 			minetest.chat_send_player(name,random_messages.list_messages())
-		elseif t[1] == "removemessage" then
+		elseif t[1] == "removemessage" or t[1] == "remove" or t[1] == "delete" or t[1] == "del" then
 			if not random_messages.check_params(
 			name,
 			function (params)
@@ -154,7 +155,7 @@ local register_chatcommand_table = {
 			end,
 			t) then return end
 			random_messages.remove_message(t[2])
-		elseif t[1] == "addmessage" then
+		elseif t[1] == "addmessage" or t[1] == "add" then
 			if not t[2] then
 				minetest.chat_send_player(name,S("ERROR: No message."))
 			else
@@ -168,3 +169,5 @@ local register_chatcommand_table = {
 
 minetest.register_chatcommand("random_messages", register_chatcommand_table)
 minetest.register_chatcommand("rmessages", register_chatcommand_table)
+minetest.register_chatcommand("rmsg", register_chatcommand_table)
+

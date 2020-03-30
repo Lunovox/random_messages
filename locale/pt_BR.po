@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-30 15:04+0200\n"
+"PO-Revision-Date: 2020-03-30 15:05+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: gedit\n"
+"Last-Translator: Lunovox <lunovox@disroot.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+#: init.lua
+msgid ""
+"Blame the server admin! He/She has probably not edited the random messages yet.\n"
+msgstr ""
+"Culpe o administrador do servidor! Provavelmente ainda não editou as mensagens aleatórias.\n"
+
+#: init.lua
+msgid ""
+"Tell your dumb admin that this line is in (worldpath)/random_messages\n"
+msgstr ""
+"Informe o seu administrador idiota de que este texto está em: (mapa do mundo)/random_messages\n"
+
+#: init.lua
+msgid "View and/or alter the server's random messages"
+msgstr "Visualiza e/ou Altera as mensagens aleatórias do servidor."
+
+#: init.lua
+msgid "ERROR: No such message."
+msgstr "ERRO : Essa mensagem não existe."
+
+#: init.lua
+msgid "ERROR: No message."
+msgstr "ERRO : Digite uma mensagem!"
+
+#: init.lua
+msgid "ERROR: Invalid command."
+msgstr "ERRO : Comando Inválido."
+
+#: init.lua
+msgid "INFORMATION"
+msgstr "INFO/DICA"
