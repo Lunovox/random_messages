@@ -7,7 +7,8 @@ arsdragonfly@gmail.com
 local MESSAGE_INTERVAL = 0
 -- Added default messages file
 local default_messages_file = "default_random_messages"
-local default_messages_color =  (minetest.setting_get("default_messages_color") or "FF0000")
+local random_messages_color_sender =  (minetest.setting_get("random_messages.color.sender") or "FFFF00")
+local random_messages_color_body =  (minetest.setting_get("random_messages.color.body") or "CCCCCC")
 
 math.randomseed(os.time())
 
@@ -34,13 +35,13 @@ function table.random( t )
 end
 
 function random_messages.initialize() --Set the interval in minetest.conf.
-	minetest.settings:set("random_messages_interval",120)
+	minetest.settings:set("random_messages.interval",120)
 	minetest.settings:write();
 	return 120
 end
 
 function random_messages.set_interval() --Read the interval from minetest.conf(set it if it doesn'st exist)
-	MESSAGE_INTERVAL = tonumber(minetest.settings:get("random_messages_interval")) or random_messages.initialize()
+	MESSAGE_INTERVAL = tonumber(minetest.settings:get("random_messages.interval")) or random_messages.initialize()
 end
 
 function random_messages.check_params(name,func,params)
@@ -86,7 +87,11 @@ end
 function random_messages.display_message(message_number)
 	local msg = random_messages.messages[message_number] or message_number
 	if msg then
-		minetest.chat_send_all("["..core.colorize("#"..default_messages_color, S("INFORMATION")).."] "..S(msg))
+		minetest.chat_send_all(
+   core.colorize("#"..random_messages_color_body, "[")..
+   core.colorize("#"..random_messages_color_sender, S("INFORMATION"))..
+   core.colorize("#"..random_messages_color_body, "] "..S(msg))
+ )
 	end
 end
 
